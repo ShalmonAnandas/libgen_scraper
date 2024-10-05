@@ -1,0 +1,19 @@
+name: libgen_scraper
+description: Libgen.gs scraper written in pure dart
+version: 1.0.0
+repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.4.1
+
+# Add regular dependencies here.
+dependencies:
+  # path: ^1.8.0
+  
+  html: ^0.15.4
+  http: ^1.2.2
+  
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0

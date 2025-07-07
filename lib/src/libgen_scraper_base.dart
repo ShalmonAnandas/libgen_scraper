@@ -7,6 +7,10 @@ class LibgenScraper {
 
 // Function to scrape fiction from Libgen
   Future<List<Map<String, String>>> getSearchResults(String query) async {
+    if (query.trim().isEmpty) {
+      throw Exception("Query cannot be empty");
+    }
+
     final url =
         'https://libgen.gs/index.php?req=${query.replaceAll(" ", "%20")}&columns%5B%5D=t&columns%5B%5D=a&topics%5B%5D=l&topics%5B%5D=f&res=100&covers=on';
     final response = await apiClient.getRequest(
@@ -78,6 +82,10 @@ class LibgenScraper {
 
 // Function to extract download links from a given mirror page
   Future<Map<String, String>> getDownloadLinks(String mirror) async {
+    if (mirror.trim().isEmpty) {
+      throw Exception("Mirror URL cannot be empty");
+    }
+
     final response = await apiClient.getRequest(
         ioClient: apiClient.getApiClient(), url: mirror);
 

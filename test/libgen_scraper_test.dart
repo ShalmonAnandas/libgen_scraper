@@ -295,6 +295,12 @@ void main() {
         // Act & Assert
         expect(() => scraper.getDownloadLinks(invalidUrl), throwsA(isA<Exception>()));
       });
+
+      test('should handle empty mirror URL', () async {
+        // Act & Assert
+        expect(() => scraper.getDownloadLinks(''), throwsA(isA<Exception>()));
+        expect(() => scraper.getDownloadLinks('   '), throwsA(isA<Exception>()));
+      });
     });
   });
 

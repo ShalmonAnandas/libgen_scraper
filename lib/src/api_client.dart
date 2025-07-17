@@ -16,7 +16,7 @@ class APIClient {
     try {
       return await ioClient.get(Uri.parse(url), headers: headers);
     } catch (e) {
-      return Response("HTTP ERROR", 0);
+      return Response("HTTP ERROR", 500);
     } finally {
       ioClient.close();
     }
